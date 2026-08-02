@@ -1,0 +1,16 @@
+{
+  "TEST1": {
+    "events": [
+      {"id": 1, "dt": "2026-08-02T10:00:00Z", "dsc": "Orden creada. Etiqueta impresa", "carrier": "TestCourier"},
+      {"id": 2, "dt": "2026-08-02T14:30:00Z", "dsc": "En camino. Salió a reparto", "carrier": "TestCourier"}
+    ],
+    "state": {"Delivered": false}
+  },
+  "TEST2": {
+    "events": [
+      {"id": 1, "dt": "2026-08-02T10:00:00Z", "dsc": "Recibido por el transportista", "carrier": "TestCourier"},
+      {"id": 2, "dt": "2026-08-02T18:00:00Z", "dsc": "Entregado al destinatario", "carrier": "TestCourier"}
+    ],
+    "state": {"Delivered": true}
+  }
+}

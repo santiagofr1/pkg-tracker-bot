@@ -1,0 +1,14 @@
+[Unit]
+Description=Package tracker Telegram bot
+After=network-online.target
+
+[Service]
+Type=simple
+User=%i
+WorkingDirectory=/home/%i/projects/pkg-tracker-bot
+ExecStart=/home/%i/projects/pkg-tracker-bot/.venv/bin/python bot.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
