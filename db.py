@@ -50,6 +50,17 @@ def list_packages(chat_id: int) -> list[sqlite3.Row]:
     return rows
 
 
+def get_package(chat_id: int, tracking_code: str) -> sqlite3.Row | None:
+    conn = sqlite3.connect(DB_PATH)
+    conn.row_factory = sqlite3.Row
+    row = conn.execute(
+        "SELECT tracking_code, alias, pkg_id, last_status FROM packages WHERE chat_id = ? AND tracking_code = ?",
+        (chat_id, tracking_code),
+    ).fetchone()
+    conn.close()
+    return row
+
+
 def list_all_packages() -> list[sqlite3.Row]:
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
